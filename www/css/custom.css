@@ -1,0 +1,159 @@
+.main-side-menu .bar-stable .button.button-clear {
+	color: #fff;
+}
+.main-side-menu .menu-left {
+	/*background: #eee;*/
+}
+.side-menu-header {
+	height: 30vw;
+	background: #eee !important;
+}
+.side-menu-header .title img {
+	width: 20vw;
+	height: auto;
+	margin-top: 2.5vw;
+}
+.side-menu-header .title {
+	text-align: center !important;
+	height: 30vw !important;
+
+}
+P {
+	text-align: justify;
+}
+ol {
+	list-style-type: decimal;
+	margin-left: 15px;
+}
+ol li {
+	margin-bottom: 7px;
+}
+.side-menu-content {
+	top: 30vw;
+}
+.side-menu-content .item {
+	border-top: 1px solid #ddd;
+	padding: 0;
+}
+.side-menu-content .item span {
+	font-weight: bold;
+	display: block;
+	font-size: 4.50vw;
+	padding: 4vw 0 4vw 5vw;
+}
+.accoContent {
+	margin-left: 4vw;
+}
+.sidebarContentBody {
+	padding: 5vw 8vw;
+}
+.side-menu-content .item span i {
+	height: 4vw;
+	width: 4vw;
+	display: inline-block;
+	float: right;
+	margin-right: 5vw;
+}
+.side-menu-content .item a {
+	display: block;
+	color: #000;
+	text-decoration: none;
+	padding: 2vw;
+	border-bottom: 1px solid #ddd;
+	font-style: 4.22vw;
+}
+.side-menu-content .item a:last-child {
+	border-bottom: 0; 
+}
+.side-menu-content .item a:first-child {
+	padding-top: 0; 
+}
+
+.main-slider {
+	height: 40vw;
+	background: url(../img/main-slider.jpg);
+	background-size: cover;
+}
+.main-slider .slider-slide {
+	padding: 5vw;
+	font-size: 4.50vw;
+}
+
+.main-article-list a {
+	padding: 0 !important;
+}
+.main-article-list span {
+	padding: 10vw 5vw;
+	display: block;
+	font-family: 'papyrus';
+	font-weight: bold;
+	color: #000;
+	font-size: 6.44vw;
+}
+.main-article-list .item:nth-child(even) span {
+	color: #fff;
+}
+.main-article-list .item {
+	border-top: 5px solid #000;
+}
+
+
+.bar-header .title.title-left {
+	text-align: center;	
+}
+.header-item img {
+	width: 9.86vw;
+    height: 9.12vw;
+    margin-top: 1.5vw;
+}
+.pull-right {
+	float: right;
+}
+.header-item span {
+	color: #fff;
+}
+.nav-bar-block .bar-header {
+	background-color: #a00000;
+	color: #fff;
+}
+
+.text-center {
+	text-align: center;
+}
+.main-page-link-ddescription {
+	padding: 5vw 8vw;
+}
+.heading {
+	color: #e65c00;
+	font-size: 6vw;
+	margin-bottom: 5vw;
+}
+.main-page-link-ddescription p {
+	font-size: 4vw;
+	margin-bottom: 5vw;
+}
+.bookTitle ul {
+	list-style-type: decimal;
+}
+.bookTitle ul li {
+	color: #e65c00;
+	margin-bottom: 2vw;
+}
+.bookTitle ul li a{
+	color: #000000;
+	text-decoration: none;
+	font-size: 4vw;
+	display: block;
+}
+
+.bookBody p > span {
+	display: block;
+}
+
+.treatment ul {
+	padding-left: 18px;
+}
+.treatment ul li {
+	color: #000000;
+	margin-bottom: 20px;
+}

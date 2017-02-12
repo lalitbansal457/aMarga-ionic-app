@@ -1,0 +1,10 @@
+<ion-view view-title="<span>Ananda Marga</span><img src='../img/logo.png' class='pull-right' />">
+	 <ion-content class="sidebarContentBody bookTitle">
+	 <div class="heading text-center">Yogic Treatments</div>
+		<ul>
+			<li ng-repeat="treatments in treatments">
+				<a href="#/app/yogicTreatments/{{treatments.id}}" ng-click="goToTreatPage($index)">{{treatments.title}}</a>
+			</li>
+		</ul>
+	  </ion-content>
+</ion-view>

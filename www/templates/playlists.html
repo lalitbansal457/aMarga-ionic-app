@@ -1,0 +1,18 @@
+<ion-view view-title="<span>Ananda Marga</span><img src='../img/logo.png' class='pull-right' />" class="main-header-title">
+
+  <ion-content class="has-header">
+  	<ion-slide-box auto-play="true" does-continue="true" on-slide-changed="slideHasChanged($index)" class="main-slider">
+  	  <ion-slide ng-repeat="mainSliderContent in mainSliderContent">
+  	    <div class="box"  >
+  	    	{{mainSliderContent.sliderContent}}
+  	    </div>
+  	  </ion-slide>
+  	  
+  	</ion-slide-box>
+    <ion-list class="main-article-list">
+      <ion-item ng-repeat="playlist in playlists" href="#/app/playlists/{{playlist.id}}" >
+        <span main-article-bg="../img/{{playlist.bgImage}}"></span>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

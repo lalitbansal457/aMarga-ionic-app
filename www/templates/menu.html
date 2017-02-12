@@ -1,0 +1,41 @@
+<ion-side-menus enable-menu-with-back-views="true" class="main-side-menu">
+  <ion-side-menu-content  >
+    <ion-nav-bar class="bar-stable">
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+
+      <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-nav-view name="menuContent"></ion-nav-view>
+  </ion-side-menu-content>
+
+  <ion-side-menu side="left" class="">
+    <ion-header-bar class="bar-stable side-menu-header">
+      <h1 class="title" ui-sref="app.playlists" menu-close>
+        <!-- <a href="#/app/playlists"> -->
+          <img src="../img/logo.png" />  
+        <!-- </a> -->
+        
+      </h1>
+    </ion-header-bar>
+    <ion-content class="side-menu-content">
+      <ion-list>
+      <!-- <ion-item>
+        <span ng-click="toggleLink($index)">{{sideMenuLink.linkTitle}}  <i class="ion-plus" ng-class="(accoId == $index) ? 'ion-minus' : 'ion-plus'"></i></span>
+        <div ng-show="accoId == $index" class="accoContent">
+          <a ng-href="{{sideMenuLinkInner.linkHref}}" menu-close ng-click="goToBook(1)" ui-sref="app.sidebarBookContent">Caryacarya-1</a>
+      </ion-item> -->
+        <ion-item  ng-repeat="sideMenuLink in sideMenuLinks" ng-click='goTolink($index)' class="item-text-wrap">
+          <span ng-click="toggleLink($index)">{{sideMenuLink.linkTitle}}  <i class="ion-plus" ng-class="(accoId == $index) ? 'ion-minus' : 'ion-plus'"></i></span>
+          <div ng-show="accoId == $index" class="accoContent">
+            <a ng-href="{{sideMenuLinkInner.linkHref}}" menu-close  ng-click="goToPage($index); $event.stopPropagation();" ng-repeat="sideMenuLinkInner in sideMenuLink.innerLinkArr">{{sideMenuLinkInner.innerLink}}
+            {{sideMenuLinkInner.linkTitle}}</a>
+          </div> 
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-side-menu>
+</ion-side-menus>
