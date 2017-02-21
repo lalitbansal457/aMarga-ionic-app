@@ -29,11 +29,13 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     .state('app', {
     url: '/app',
     abstract: true,
+    cache:false,
     templateUrl: 'templates/menu.html',
     controller: 'AppCtrl'
   })
   .state('app.sidebarContent', {
     url: '/sidebarContent',
+    cache:false,
     views: {
       'menuContent': {
         templateUrl: 'templates/sidebarContent.html',
@@ -43,6 +45,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
   })
   .state('app.sidebarBookContent', {
     url: '/sidebarBookContent/:id',
+    cache:false,
     views: {
       'menuContent': {
         templateUrl: 'templates/books/sidebarBookContent.html',
@@ -52,6 +55,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
   })
   .state('app.sidebarBookContentSingle', {
     url: '/sidebarBookContentSingle/:bookPageIndex',
+    cache:false,
     views: {
       'menuContent': {
         templateUrl: function(elem, attr) {
@@ -65,6 +69,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
   })
   .state('app.sidebarTreatmentContent', {
     url: '/Yogic-treatment',
+    cache:false,
     views: {
       'menuContent': {
         templateUrl: 'templates/yogic-treatment.html',
@@ -74,6 +79,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
   })
   .state('app.sidebarTreatmentContentSingle', {
     url: '/Yogic-treatment/:treatmentPageIndex',
+    cache:false,
     views: {
       'menuContent': {
         templateUrl: 'templates/sidebarTreatmentContentSingle.html',
@@ -83,6 +89,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
   })
   .state('app.search', {
     url: '/search',
+    cache:false,
     views: {
       'menuContent': {
         templateUrl: 'templates/search.html'
@@ -92,6 +99,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
 
   .state('app.browse', {
       url: '/browse',
+      cache:false,
       views: {
         'menuContent': {
           templateUrl: 'templates/browse.html'
@@ -100,6 +108,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     })
     .state('app.playlists', {
       url: '/home',
+      cache:false,
       views: {
         'menuContent': {
           templateUrl: 'templates/playlists.html',
@@ -110,6 +119,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
 
   .state('app.single', {
     url: '/playlists/:playlistId',
+    cache:false,
     views: { 
       'menuContent': {
         templateUrl: 'templates/playlist.html',
@@ -118,5 +128,5 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     }
   });
   // if none of the above states are matched, use this as the fallback
-  //$urlRouterProvider.otherwise('/app/playlists');
+  $urlRouterProvider.otherwise('/app/home');
 });
