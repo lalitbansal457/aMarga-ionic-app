@@ -16,7 +16,7 @@ angular.module('starter.controllers', [])
       $ionicHistory.goBack(backCount);
     }
   };
-  
+  //$state.go($state.current, {}, {reload: true}); 
 
   // Form data for the login modal
   $scope.loginData = {};
@@ -53,8 +53,8 @@ angular.module('starter.controllers', [])
     $scope.sideMenuLinks = response.data.sideMenuLinks;
   });*/
   $scope.goToPage = function(index) {
-    if($scope.sidebarLinkId == 1 && index == 0) {
-      $state.go('app.sidebarBookContent');
+    if($scope.sidebarLinkId == 1) {
+      $state.go('app.sidebarBookContent', {id:index+1});
       console.log(index);
       return
     } else {
@@ -62,21 +62,39 @@ angular.module('starter.controllers', [])
       $scope.sidebarId = index;
       console.log($scope.sidebarId);
     }
+    if($scope.sidebarLinkId ==0) {
+      if ($scope.sidebarId == 1) {
+        $scope.sidePage = 'templates/founder.html';
+      } else if ($scope.sidebarId == 0) {
+        $scope.sidePage = 'templates/about.html';
+      }
+      else if ($scope.sidebarId == 2) {
+        $scope.sidePage = 'templates/lorem.html';
+      }
+    }
+    if($scope.sidebarLinkId == 5) {
+      if ($scope.sidebarId == 1) {
+        $scope.sidePage = 'templates/yogic-treatment.html';
+      } else if ($scope.sidebarId == 0) {
+        $scope.sidePage = 'templates/about.html';
+      }
+    }
+    if($scope.sidebarLinkId == 6) {
+      if ($scope.sidebarId == 1) {
+        $scope.sidePage = 'templates/paincadashashiila.html';
+      } else if ($scope.sidebarId == 0) {
+        $scope.sidePage = 'templates/sixteen-points.html';
+      } else if ($scope.sidebarId == 2) {
+        $scope.sidePage = 'templates/secrets-for-long-life.html';
+      }
+      else if ($scope.sidebarId == 3) {
+        $scope.sidePage = 'templates/our-internal-enemies.html';
+      }
+    }
     
     //$scope.sidebarId = index;
   }
   $scope.goTolink = function(index) {
-    console.log(index)
-    /*if(index == 1) {
-      $state.go('app.sidebarBookContent');
-      console.log("if");
-      return
-    } else {
-      $scope.sidebarLinkId = index;
-      console.log("else3")
-    }*/
-
-
     $scope.sidebarLinkId = index;
     console.log($scope.sidebarLinkId);
     
@@ -371,283 +389,289 @@ angular.module('starter.controllers', [])
         }
     ];
 })
-.controller('sidebarBookCtrl', function($scope, $state, $stateParams){
+.controller('sidebarBookCtrl', function($scope, $state, $stateParams,$location){
   console.log("hello", $stateParams);
-  if($stateParams.id == 1) {
-    $scope.bookTitle = [
-        {
+  
+  console.log($stateParams.id)
+    if($stateParams.id == 1) {
+      $scope.bookTitle = [
+          {
+            id: '1',
+            title: 'Infant\'s Játakarma: The Naming of and First Feeding of Solid Food to an Infant',
+          },
+          {
+            id: '2',
+            title: 'The Process of Initiation',
+
+          },
+          {
+            id: '3',
+            title: 'Sádhaná',
+          },
+          {
+            id: '4',
+            title: 'Táttvika, Ácárya/á, and Purodhá',
+          },
+          {
+            id: '5',
+            title: 'Self-Analysis',
+
+          },
+          {
+            id: '6',
+            title: 'Relationship with an Ácárya/á',
+          },
+          {
+            id: '7',
+            title: 'Methods of Salutation',
+          },
+          {
+            id: '8',
+            title: 'Páiṋcajanya',
+
+          },
+          {
+            id: '9',
+            title: 'Dharmacakra',
+          },
+          {
+            id: '10',
+            title: 'Svádhyáya',
+          },
+          {
+            id: '11',
+            title: 'Dharma Mahácakra',
+
+          },
+          {
+            id: '12',
+            title: 'Tattvasabhá',
+          },
+          {
+            id: '13',
+            title: 'Jágrti',
+          },
+          {
+            id: '14',
+            title: 'Laying of the Foundation Stone',
+
+          },
+          {
+            id: '15',
+            title: 'House-Entry Ceremony',
+          },
+          {
+            id: '16',
+            title: 'Tree-Planting Ceremony',
+          },
+          {
+            id: '17',
+            title: 'Commencing a Journey',
+
+          },
+          {
+            id: '18',
+            title: 'Marriage Ceremony',
+          },
+          {
+            id: '19',
+            title: 'The Ideal Householder',
+          },
+          {
+            id: '20',
+            title: 'Birthday Ceremony',
+
+          },
+          {
+            id: '21',
+            title: 'Social Functions and Festivals',
+          },
+          {
+            id: '22',
+            title: 'The System of Invitation',
+          },
+          {
+            id: '23',
+            title: 'Dress',
+
+          },
+          {
+            id: '24',
+            title: 'Social Relationship between Men and Women',
+          },
+          {
+            id: '25',
+            title: 'Livelihood',
+          },
+          {
+            id: '26',
+            title: 'The Livelihood of Women',
+
+          },
+          {
+            id: '27',
+            title: 'Economic Policy',
+          },
+          {
+            id: '28',
+            title: 'InfantIdeal System of Inheritance',
+          },
+          {
+            id: '29',
+            title: 'Science and Society',
+
+          },
+          {
+            id: '30',
+            title: 'Social Punishment',
+          },
+          {
+            id: '31',
+            title: 'Disposal of the Dead Body',
+          },
+          {
+            id: '32',
+            title: 'Shráddha Ceremony',
+
+          },
+          {
+            id: '33',
+            title: 'Widows',
+          },
+          {
+            id: '34',
+            title: 'Bhukti Pradhána',
+          },
+          {
+            id: '35',
+            title: 'Samájamitram, Smártta, Jiivamitram and Dharmamitram',
+
+          },
+          {
+            id: '36',
+            title: 'Formation of Boards',
+          },
+          {
+            id: '37',
+            title: 'IUpabhukti Pramukha',
+          },
+          {
+            id: '38',
+            title: 'Sándhivigráhika, Janamitram and Lokamitram',
+
+          },
+          {
+            id: '39',
+            title: 'Your Various Organizations',
+          },
+          {
+            id: '40',
+            title: 'Táttvika, Ácárya/á, Purodhá and Their Concerned Boards',
+          },
+          {
+            id: '41',
+            title: 'Avadhúta/iká and Avadhúta Board',
+
+          },
+          {
+            id: '42',
+            title: 'Treasures of Ananda Marga',
+          },
+          {
+            id: '43',
+            title: 'Guru Vandaná',
+          },
+          {
+            id: '44',
+            title: 'Concluding Words',
+
+          },
+          {
+            id: '45',
+            title: 'Appendix: Maháprayáńa Divasa',
+          }
+      ]
+    } else if($stateParams.id == 2) {
+      $scope.bookTitle = [{
           id: '1',
-          title: 'Infant\'s Játakarma: The Naming of and First Feeding of Solid Food to an Infant',
+          title: 'Sádhaná (Intuitional Practice)'
         },
         {
           id: '2',
-          title: 'The Process of Initiation',
-
+          title:'The Body'
         },
         {
           id: '3',
-          title: 'Sádhaná',
+          title:'Society'
         },
         {
           id: '4',
-          title: 'Táttvika, Ácárya/á, and Purodhá',
+          title:'Miscellaneous'
         },
         {
           id: '5',
-          title: 'Self-Analysis',
-
+          title:'Paiṋcadasha Shiila (The Fifteen Rules of Behaviour)'
         },
         {
           id: '6',
-          title: 'Relationship with an Ácárya/á',
+          title:'Conduct Rules for Sádhakas'
         },
         {
           id: '7',
-          title: 'Methods of Salutation',
+          title:'Sixteen Points'
         },
         {
           id: '8',
-          title: 'Páiṋcajanya',
-
+          title:'Social Norms'
+        }
+      ]
+    }else if($stateParams.id == 3) {
+      $scope.bookTitle = [{
+          id: '1',
+          title: 'Bathing Procedure and Pitr Yajiṋa'
+        },
+        {
+          id: '2',
+          title:'Procedure for Eating'
+        },
+        {
+          id: '3',
+          title:'Procedure for Fasting'
+        },
+        {
+          id: '4',
+          title:'Taking the Air'
+        },
+        {
+          id: '5',
+          title:'Physical Restraint'
+        },
+        {
+          id: '6',
+          title:'General Health Rules'
+        },
+        {
+          id: '7',
+          title:'Different Yoga Practices'
+        },
+        {
+          id: '8',
+          title:'Ásanas'
         },
         {
           id: '9',
-          title: 'Dharmacakra',
+          title:'Mudrás and Bandhas'
         },
         {
           id: '10',
-          title: 'Svádhyáya',
-        },
-        {
-          id: '11',
-          title: 'Dharma Mahácakra',
-
-        },
-        {
-          id: '12',
-          title: 'Tattvasabhá',
-        },
-        {
-          id: '13',
-          title: 'Jágrti',
-        },
-        {
-          id: '14',
-          title: 'Laying of the Foundation Stone',
-
-        },
-        {
-          id: '15',
-          title: 'House-Entry Ceremony',
-        },
-        {
-          id: '16',
-          title: 'Tree-Planting Ceremony',
-        },
-        {
-          id: '17',
-          title: 'Commencing a Journey',
-
-        },
-        {
-          id: '18',
-          title: 'Marriage Ceremony',
-        },
-        {
-          id: '19',
-          title: 'The Ideal Householder',
-        },
-        {
-          id: '20',
-          title: 'Birthday Ceremony',
-
-        },
-        {
-          id: '21',
-          title: 'Social Functions and Festivals',
-        },
-        {
-          id: '22',
-          title: 'The System of Invitation',
-        },
-        {
-          id: '23',
-          title: 'Dress',
-
-        },
-        {
-          id: '24',
-          title: 'Social Relationship between Men and Women',
-        },
-        {
-          id: '25',
-          title: 'Livelihood',
-        },
-        {
-          id: '26',
-          title: 'The Livelihood of Women',
-
-        },
-        {
-          id: '27',
-          title: 'Economic Policy',
-        },
-        {
-          id: '28',
-          title: 'InfantIdeal System of Inheritance',
-        },
-        {
-          id: '29',
-          title: 'Science and Society',
-
-        },
-        {
-          id: '30',
-          title: 'Social Punishment',
-        },
-        {
-          id: '31',
-          title: 'Disposal of the Dead Body',
-        },
-        {
-          id: '32',
-          title: 'Shráddha Ceremony',
-
-        },
-        {
-          id: '33',
-          title: 'Widows',
-        },
-        {
-          id: '34',
-          title: 'Bhukti Pradhána',
-        },
-        {
-          id: '35',
-          title: 'Samájamitram, Smártta, Jiivamitram and Dharmamitram',
-
-        },
-        {
-          id: '36',
-          title: 'Formation of Boards',
-        },
-        {
-          id: '37',
-          title: 'IUpabhukti Pramukha',
-        },
-        {
-          id: '38',
-          title: 'Sándhivigráhika, Janamitram and Lokamitram',
-
-        },
-        {
-          id: '39',
-          title: 'Your Various Organizations',
-        },
-        {
-          id: '40',
-          title: 'Táttvika, Ácárya/á, Purodhá and Their Concerned Boards',
-        },
-        {
-          id: '41',
-          title: 'Avadhúta/iká and Avadhúta Board',
-
-        },
-        {
-          id: '42',
-          title: 'Treasures of Ananda Marga',
-        },
-        {
-          id: '43',
-          title: 'Guru Vandaná',
-        },
-        {
-          id: '44',
-          title: 'Concluding Words',
-
-        },
-        {
-          id: '45',
-          title: 'Appendix: Maháprayáńa Divasa',
+          title:'Práńáyáma'
         }
-    ]
-  } else if($stateParams.id == 2) {
-    $scope.bookTitle = [{
-        id: '1',
-        title: 'Sádhaná (Intuitional Practice)'
-      },
-      {
-        id: '2',
-        title:'The Body'
-      },
-      {
-        id: '3',
-        title:'Society'
-      },
-      {
-        id: '4',
-        title:'Miscellaneous'
-      },
-      {
-        id: '5',
-        title:'Paiṋcadasha Shiila (The Fifteen Rules of Behaviour)'
-      },
-      {
-        id: '6',
-        title:'Conduct Rules for Sádhakas'
-      },
-      {
-        id: '7',
-        title:'Sixteen Points'
-      },
-      {
-        id: '8',
-        title:'Social Norms'
-      }
-    ]
-  }else if($stateParams.id == 3) {
-    $scope.bookTitle = [{
-        id: '1',
-        title: 'Bathing Procedure and Pitr Yajiṋa'
-      },
-      {
-        id: '2',
-        title:'Procedure for Eating'
-      },
-      {
-        id: '3',
-        title:'Procedure for Fasting'
-      },
-      {
-        id: '4',
-        title:'Taking the Air'
-      },
-      {
-        id: '5',
-        title:'Physical Restraint'
-      },
-      {
-        id: '6',
-        title:'General Health Rules'
-      },
-      {
-        id: '7',
-        title:'Different Yoga Practices'
-      },
-      {
-        id: '8',
-        title:'Ásanas'
-      },
-      {
-        id: '9',
-        title:'Mudrás and Bandhas'
-      },
-      {
-        id: '10',
-        title:'Práńáyáma'
-      }
-    ]
-  }
+      ]
+    }
+
+
+  
+  
   
 
   $scope.goToBookPage = function(index) {
@@ -841,6 +865,8 @@ angular.module('starter.controllers', [])
   return {
     
     restrict: 'A',
+    transclude: true,
+    //scope: {sidebarContent: '=sidebarContentDir' },
    /* controller: function(attr, elem) {
       console.log(attr, elem);
     },
@@ -848,24 +874,31 @@ angular.module('starter.controllers', [])
       console.log(elm, attr);
       return 'templates/' +attr.sidebarContentDir+ '.html';
     }*/
-    compile: function compile( tElement, tAttributes ) {
+    /*compile: function compile( tElement, tAttributes ) {
+      
         console.log( tAttributes.sidebarContentDir + ' (compile)'  );
         return {
             pre: function preLink( scope, element, attributes ) {
-                console.log( attributes.sidebarContentDir + ' (pre-link)'  );
-                 scope.sidebarContentUrl = 'templates/' +attributes.sidebarContentDir+ '.html';
+                console.log( attributes.sidebarContentDir + ' (pre-link)', scope  );
+                 scope.$parent.sidebarContentUrl = 'templates/' +attributes.sidebarContentDir+ '.html';
             },
             post: function postLink( scope, element, attributes ) {
                 console.log(attributes.sidebarContentDir  );
-                scope.sidebarContentUrl = 'templates/' +attributes.sidebarContentDir+ '.html';
+                scope.$parent.sidebarContentUrl = 'templates/' +attributes.sidebarContentDir+ '.html';
                 //scope.$apply();
             }
         };
-     },
-     /*link: function(scope, element, attributes) {
-      console.log( attributes.sidebarContentDir + ' (post-link)'  );
-      scope.sidebarContentUrl = 'templates/' +attributes.sidebarContentDir+ '.html';
-    },*/
+     },*/
+     link: function(scope, element, attributes) {
+        //console.log(scope, element, attributes)
+        /*scope.$watch(function() {
+          return scope.sidebarLinkId;
+          }, function(newValue, oldValue) {
+            console.log(newValue, oldValue);
+        })*/
+        
+        scope.sidebarContentUrl = 'templates/' +attributes.sidebarContentDir+ '.html';
+      },
   
     template: '<div ng-include="sidebarContentUrl"></div>'
   }
