@@ -140,21 +140,44 @@ angular.module('starter', ['ionic', 'starter.controllers'])
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'starter.controllers'])
 
-.run(function($ionicPlatform, $state) {
+.run(function($ionicPlatform, $state, $ionicPopup,$timeout) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
     $state.go('app.playlists');
-    console.log("hello")
-    if (window.cordova && window.cordova.plugins.Keyboard) {
+    console.log("hello", window.Connection)
+    /*if (window.cordova && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
       cordova.plugins.Keyboard.disableScroll(true);
 
-    }
+    }*/
+    $timeout(function(){
+       if (navigator && navigator.splashscreen) {
+           navigator.splashscreen.hide();
+       }
+       if (window.navigator && window.navigator.splashscreen) {
+           window.navigator.splashscreen.hide();
+       }
+     },2000);
     if (window.StatusBar) {
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
+
+    if(typeof navigator.connection !== "undefined") {
+        console.log("hello");
+        if(navigator.connection.type == Connection.NONE) {
+            $ionicPopup.confirm({
+                title: "Internet Disconnected",
+                content: "The internet is disconnected on your device."
+            })
+            .then(function(result) {
+                if(!result) {
+                    ionic.Platform.exitApp();
+                }
+            });
+        }
+      }
   });
 })
 
@@ -178,9 +201,8 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     }
   })
   .state('app.sidebarBookContent', {
-    url: '/sidebarBookContent/',
-    params: {id:null},
-    cache:true,
+    url: '/sidebarBookContent',
+    cache:false,
     views: {
       'menuContent': {
         templateUrl: 'templates/books/sidebarBookContent.html',
@@ -222,6 +244,76 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       }
     }
   })
+  .state('app.sidebarPrSarkarContent', {
+    url: '/pr-sarkar',
+    cache:false,
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/prSarkar.html',
+        controller: 'prSarkarCtrl'
+      }
+    }
+  })
+  .state('app.sidebarPrSarkarContentSingle', {
+    url: '/pr-sarkar/:prSarkarPageIndex',
+    cache:false,
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/sidebarPrSarkarContentSingle.html',
+        controller: 'prSarkarSingleCtrl'
+      }
+    }
+  })
+  .state('app.ananda-vanii-samgraha', {
+    url: '/ananda-vanii-samgraha',
+    cache:false,
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/ananda-vanii-samgraha.html',
+       
+      }
+    }
+   })
+  .state('app.some-selected-opinions', {
+    url: '/some-selected-opinions',
+    cache:false,
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/some-selected-opinions.html',
+       
+      }
+    }
+   })
+  .state('app.date', {
+    url: '/date',
+    cache:false,
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/date.html',
+       
+      }
+    }
+   })
+  .state('app.aboutUs', {
+    url: '/aboutUs',
+    cache:false,
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/aboutUs.html',
+        
+      }
+    }
+   })
+  .state('app.scriptures', {
+    url: '/scriptures',
+    cache:false,
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/scriptures.html',
+        
+      }
+    }
+   })
   .state('app.search', {
     url: '/search',
     cache:false,

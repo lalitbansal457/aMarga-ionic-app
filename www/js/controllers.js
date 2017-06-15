@@ -8,6 +8,30 @@ angular.module('starter.controllers', [])
   // listen for the $ionicView.enter event:
   //$scope.$on('$ionicView.enter', function(e) {
   //});
+
+  $scope.readMore = function(index) {
+    $scope['readMore'+index] = true;
+    console.log($scope['readMore'+index])
+    $('.readMore').click(function(){
+        alert("hello");
+    })
+  }
+
+  document.addEventListener("deviceready", onDeviceReady, false);
+
+   function onDeviceReady() {
+     document.addEventListener("online", onlineHandler, false);
+     document.addEventListener("offline", offlineHandler, false);
+   }
+
+   function onlineHandler() {
+     debugger
+   }
+
+   function offlineHandler() {
+     debugger
+     console.log("offline");
+   }
   console.log($state.current.name, $state);
   $scope.$ionicGoBack = function(backCount) {
     if($state.current.name == 'app.sidebarBookContentSingle')  {
@@ -53,8 +77,12 @@ angular.module('starter.controllers', [])
     $scope.sideMenuLinks = response.data.sideMenuLinks;
   });*/
   $scope.goToPage = function(index) {
+    if(index == 'date'){
+      $scope.toggleLeft();
+    }
+    localStorage.setItem('sidebarLinkId', index+1);
     if($scope.sidebarLinkId == 1) {
-      $state.go('app.sidebarBookContent', {id:index+1});
+      $state.go('app.sidebarBookContent');
       console.log(index);
       return
     } else {
@@ -72,14 +100,25 @@ angular.module('starter.controllers', [])
         $scope.sidePage = 'templates/lorem.html';
       }
     }
-    if($scope.sidebarLinkId == 5) {
+    if($scope.sidebarLinkId ==1) {
+      if ($scope.sidebarId == 0) {
+        debugger
+        $scope.sidePage = 'templates/books/sidebarBookContent.html';
+      } else if ($scope.sidebarId == 0) {
+        $scope.sidePage = 'templates/books/sidebarBookContent.html';
+      }
+      else if ($scope.sidebarId == 2) {
+        $scope.sidePage = 'templates/books/sidebarBookContent.html';
+      }
+    }
+    if($scope.sidebarLinkId == 4) {
       if ($scope.sidebarId == 1) {
         $scope.sidePage = 'templates/yogic-treatment.html';
       } else if ($scope.sidebarId == 0) {
-        $scope.sidePage = 'templates/about.html';
+        $scope.sidePage = 'templates/microvita.html';
       }
     }
-    if($scope.sidebarLinkId == 6) {
+    if($scope.sidebarLinkId == 5) {
       if ($scope.sidebarId == 1) {
         $scope.sidePage = 'templates/paincadashashiila.html';
       } else if ($scope.sidebarId == 0) {
@@ -91,6 +130,7 @@ angular.module('starter.controllers', [])
         $scope.sidePage = 'templates/our-internal-enemies.html';
       }
     }
+
     
     //$scope.sidebarId = index;
   }
@@ -120,11 +160,6 @@ angular.module('starter.controllers', [])
             innerLink: 'Founder',
             linkHref: '#/app/founder',
             description: 'founder'
-          },
-          {
-            innerLink: 'History',
-            linkHref: '#/app/history',
-            description: 'lorem ipsum3'
           }
           ]
         },
@@ -161,7 +196,7 @@ angular.module('starter.controllers', [])
             linkTitle: 'Opinions & Collections',
             innerLinkArr: [{
               innerLink: 'P.R.Sarkar’s thoughts',
-              linkHref: '#/app/P.R.Sarkar’s-thoughts'
+              linkHref: '#/app/pr-sarkar'
             },
             {
               innerLink: 'Ananda Vanii Samgraha',
@@ -173,18 +208,7 @@ angular.module('starter.controllers', [])
             }
             ]
         },
-        {
-            linkTitle: 'Songs',
-            innerLinkArr: [{
-              innerLink: 'Prabhat Samgiita',
-              linkHref: '#/app/prabhat-samgiita'
-            },
-            {
-              innerLink: 'Kirtan',
-              linkHref: '#/app/kirtan'
-            }
-          ]
-        },
+        
         {
             linkTitle: 'Science & Medicine',
             innerLinkArr: [{
@@ -224,6 +248,20 @@ angular.module('starter.controllers', [])
           ]
         }
     ];
+
+    /*{
+        linkTitle: 'Songs',
+        innerLinkArr: [{
+          innerLink: 'Prabhat Samgiita',
+          linkHref: '#/app/prabhat-samgiita'
+        },
+        {
+          innerLink: 'Kirtan',
+          linkHref: '#/app/kirtan'
+        }
+      ]
+    },*/
+    
 })
 
 .controller('PlaylistsCtrl', function($scope, $stateParams, $http) {
@@ -242,21 +280,30 @@ angular.module('starter.controllers', [])
       $scope.mainSliderContent = response.data.mainSliderContent;
     });*/
   $scope.playlists = [
-      { title: 'Supreme Command', id: 1, bgImage: 'supreme-command.jpg', articleDescription: 'page 1' },
-      { title: 'Yama & Niyama', id: 2, bgImage: 'supreme-command.jpg', articleDescription: 'page 2'  },
-      { title: 'Yoga', id: 3, bgImage: 'supreme-command.jpg', articleDescription: 'page 3'  },
-      { title: 'Prabhat Sangeet', id: 4, bgImage: 'supreme-command.jpg' , articleDescription: 'page 4'  }
+      { title: 'Supreme Command', id: 1, bgImage: 'home1.png', articleDescription: 'page 1' },
+      { title: 'Yoga', id: 2, bgImage: 'home2.png', articleDescription: 'page 3'  },
+      { title: 'Yoga', id: 3, bgImage: 'home3.png', articleDescription: 'page 3'  },
+      { title: 'Yama & Niyama', id: 4, bgImage: 'home4.png', articleDescription: 'page 2'  },
+      { title: 'Yoga', id: 5, bgImage: 'home5.png', articleDescription: 'page 3'  },
+      { title: 'Prabhat Sangeet', id: 6, bgImage: 'home6.png' , articleDescription: 'page 4'  },
+      { title: 'Prabhat Sangeet', id: 7, bgImage: 'home7.png' , articleDescription: 'page 4'  },
+      
+      
+      
   ];
 
   $scope.mainSliderContent = [
     {
-        sliderContent: 'When the flow of the mind is not impeded by selfishness, narrowness, and superstitions that alone is mukti (liberation).'
+        sliderContent: 'When the flow of the mind is not impeded by selfishness, narrowness, and superstitions that alone is mukti (liberation).',
+        imgUrl: 'slider1.png'
     },
     {
-        sliderContent: 'When the flow of the mind is not impeded by selfishness, narrowness, and superstitions that alone is mukti (liberation).'
+        sliderContent: 'When the flow of the mind is not impeded by selfishness, narrowness, and superstitions that alone is mukti (liberation).',
+        imgUrl: 'slider2.png'
     },
     {
-        sliderContent: 'When the flow of the mind is not impeded by selfishness, narrowness, and superstitions that alone is mukti (liberation).'
+        sliderContent: 'When the flow of the mind is not impeded by selfishness, narrowness, and superstitions that alone is mukti (liberation).',
+        imgUrl: 'slider3.png'
     }
   ]
   //$scope.pageId = $stateParams.playlistId;
@@ -270,10 +317,10 @@ angular.module('starter.controllers', [])
   }
   
   console.log($scope.pageId);
-  /*$scope.singleDescription = [{'articleDescription': 'page 1', 'articleHeader': 'Header1' }, {'articleDescription': 'page 2', 'articleHeader': 'Header2'}, {'articleDescription': 'page 3', 'articleHeader': 'Header3'}, {'articleDescription': 'page 4', 'articleHeader': 'Header4'}];*/
-  $http.get('https://api.myjson.com/bins/2zryj').then(function(response){
+  $scope.singleDescription = [{'articleDescription': 'page 1', 'articleHeader': 'Header1', imgUrl: 'homeInner1.png' }, {'articleDescription': 'page 2', 'articleHeader': 'Header2', imgUrl: 'homeInner2.png'}, {'articleDescription': 'page 3', 'articleHeader': 'Header3', imgUrl: 'homeInner3.png'}, {'articleDescription': 'page 4', 'articleHeader': 'Header4', imgUrl: 'homeInner4.png'}, { imgUrl: 'homeInner5.png'}, { imgUrl: 'homeInner6.png'}];
+  /*$http.get('https://api.myjson.com/bins/2zryj').then(function(response){
     $scope.singleDescription = response.data.singleDescription;
-  });
+  });*/
 })
 
 .controller('sidebarContentCtrl', function($scope){
@@ -288,10 +335,7 @@ angular.module('starter.controllers', [])
           {
             innerLink: 'Founder',
             linkHref: '#/app/founder'
-          },
-          {
-            innerLink: 'History',
-            linkHref: '#/app/history'}
+          }
           ]
         },
         {
@@ -391,9 +435,9 @@ angular.module('starter.controllers', [])
 })
 .controller('sidebarBookCtrl', function($scope, $state, $stateParams,$location){
   console.log("hello", $stateParams);
-  
+  var paramId=  localStorage.getItem('sidebarLinkId');
   console.log($stateParams.id)
-    if($stateParams.id == 1) {
+    if(paramId == 1) {
       $scope.bookTitle = [
           {
             id: '1',
@@ -575,7 +619,7 @@ angular.module('starter.controllers', [])
           },
           {
             id: '42',
-            title: 'Treasures of Ananda Marga',
+            title: 'Treasures of Bliss',
           },
           {
             id: '43',
@@ -591,7 +635,7 @@ angular.module('starter.controllers', [])
             title: 'Appendix: Maháprayáńa Divasa',
           }
       ]
-    } else if($stateParams.id == 2) {
+    } else if(paramId == 2) {
       $scope.bookTitle = [{
           id: '1',
           title: 'Sádhaná (Intuitional Practice)'
@@ -625,7 +669,7 @@ angular.module('starter.controllers', [])
           title:'Social Norms'
         }
       ]
-    }else if($stateParams.id == 3) {
+    }else if(paramId == 3) {
       $scope.bookTitle = [{
           id: '1',
           title: 'Bathing Procedure and Pitr Yajiṋa'
@@ -678,7 +722,7 @@ angular.module('starter.controllers', [])
     $scope.bookPageIndex = index;
     $state.go('app.sidebarBookContentSingle');
     console.log(index);
-    localStorage.setItem('BookNumber', $stateParams.id);
+    localStorage.setItem('BookNumber', paramId);
   }
 })
 
@@ -845,17 +889,169 @@ angular.module('starter.controllers', [])
 
 })
 
+.controller('prSarkarCtrl', function($scope, $state){
+  $scope.prSarkar = [
+      {
+             id: '1',
+             title: 'Evolution Towards Perfection',
+           },
+           {
+             id: '2',
+             title: 'The Supreme Consciousness',
+
+           },
+           {
+             id: '3',
+             title: 'Merger with the Supreme',
+           },
+           {
+             id: '4',
+             title: 'Spiritual Practice',
+           },
+           {
+             id: '5',
+             title: 'Mental Balance',
+           },
+           {
+             id: '6',
+             title: 'The Universal family',
+           },
+           {
+             id: '7',
+             title: 'You are never alone',
+           },
+           {
+             id: '8',
+             title: 'Devotion',
+           },
+           {
+             id: '9',
+             title: 'Love',
+           },
+           {
+             id: '10',
+             title: 'Intellect and Intution',
+           },
+           {
+             id: '11',
+             title: 'Service',
+           },
+           {
+             id: '12',
+             title: 'Struggle Against Obstacles',
+           },
+           {
+             id: '13',
+             title: 'Determination',
+           },
+           {
+             id: '14',
+             title: 'Supersition, Sin and Dogma',
+           },
+           {
+             id: '15',
+             title: 'The call os the Universal',
+           },
+           {
+             id: '16',
+             title: 'Spirituality- The base of Life',
+           },
+           {
+             id: '17',
+             title: 'Society and Social unity',
+           },
+           {
+             id: '18',
+             title: 'Nationalism and Universalism',
+           },
+           {
+             id: '19',
+             title: 'Social Wealth',
+           },
+           {
+             id: '20',
+             title: 'Exploitation',
+           },
+           {
+             id: '21',
+             title: 'Dialectic Materialism and Democracy',
+           },
+           {
+             id: '22',
+             title: 'Politicians',
+           },
+           {
+             id: '23',
+             title: 'Sadvipras',
+           },
+           {
+             id: '24',
+             title: 'Social Justice',
+           },
+           {
+             id: '25',
+             title: 'The Penal Code',
+           },
+           {
+             id: '26',
+             title: 'Education',
+           },
+           {
+             id: '27',
+             title: 'Art and Literature',
+           },
+           {
+             id: '28',
+             title: 'Science',
+           },
+           {
+             id: '29',
+             title: 'Industry',
+           },
+           {
+             id: '30',
+             title: 'Women',
+           },
+           {
+             id: '31',
+             title: 'Morality',
+           },
+           {
+             id: '32',
+             title: 'Human Value',
+           },
+           {
+             id: '33',
+             title: 'Civilization in Crisis',
+           },
+           {
+             id: '34',
+             title: 'Your Mission in Life',
+           }
+  ]
+
+  $scope.goToprSarkarPage = function(index) {
+    $scope.prSarkarPageIndex = index+1;
+    localStorage.setItem('prSarkarPageIndex', index+1)
+    $state.go('app.sidebarPrSarkarContentSingle');
+    console.log(index)
+  }
+})
+
+.controller('prSarkarSingleCtrl', function($scope, $state){
+    $scope.prSarkarPageIndex = localStorage.getItem('prSarkarPageIndex')
+})
+
 
 .directive('mainArticleBg', function(){
     return {
         restrict: 'A',
-        template: '{{playlist.title}}',
+        //template: '{{playlist.title}}',
         link: function(scope, elm, attr) {
           console.log(scope, elm, attr)
             var bgImageUrl = attr.mainArticleBg;
             elm.css({
                 'background-image': 'url('+ bgImageUrl +')',
-                'background-size': 'cover'
             })
         }
     }

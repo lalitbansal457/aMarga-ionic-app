@@ -1,6 +1,146 @@
-<ion-view view-title="<span>Ananda Marga</span><img src='../img/logo.png' class='pull-right' />">
+<ion-view view-title="<span>Bliss</span><img src='img/logo.png' class='pull-right' />">
   <ion-content class="main-page-link-ddescription">
-	<h2 class="heading">{{singleDescription[pageId-1].articleHeader}}</h2>
+	<!-- <h2 class="heading">{{singleDescription[pageId-1].articleHeader}}</h2>
     <p>{{singleDescription[pageId-1].articleDescription}}</p>
+
+    <img src="/img/{{singleDescription[pageId-1].imgUrl}}"> -->
+
+    <div ng-show="pageId == 1">
+        <img class="img-responsive" src="img/homeInner1.png"/ style="margin: auto; max-width: 100%;"/>
+    </div>
+    <div ng-show="pageId == 2">
+        <h2 class="head_ing2">Yama & Niyama</h2>
+                        <h3 class="head_ing5"><b>Yama</b></h3>
+                        <p class="blog_style_pg2">
+                        <b>(i) Ahiḿsá:</b> Not to inflict pain or hurt on anybody by thought, word or action, is Ahiḿsá.<br><br>
+                        <b>(ii) Satya:</b> The benevolent use of mind and words is Satya.<br><br>
+                        <b>(iii) Asteya:</b> To renounce the desire to acquire or retain the wealth of others is Asteya. Asteya means “ non-stealing.”<br><br>
+                        <b>(iv) Brahmacarya:</b> To keep the mind always absorbed in Brahma is Brahmacarya.<br><br>
+                        <b>(v) Aparigraha:</b> To renounce everything excepting the necessities for the maintenance of the body is known as Aparigraha.<br>
+                        </p>
+                        
+                        <h3 class="head_ing5"><b>Niyama</b></h3>
+                        <p class="blog_style_pg2">
+                        <b>(i) Shaoca:</b> Shaoca is of two kinds – purity of the body and of the mind. The methods for mental purity are kindliness towards all creatures, charity, working for the welfare of others and being dutiful.<br><br>
+                        <b>(ii) Santośa:</b> Santosa Contentment with things received unasked-for is santośa. It is essential to try to be cheerful always.<br><br>
+                        <b>(iii) Tapah:</b> To undergo physical hardship to attain the objective is known as Tapah. Upavása (fasting), serving the guru (preceptor), serving father and mother, and the four types of yajiṋa, namely, pitr yajiṋa, nr yajiṋa, bhúta yajiṋa and adhyátma yajiṋa (service to ancestors, to humanity, to lower beings and to Consciousness), are the other limbs of tapah. For students, study is the main tapah.<br><br>
+                        <b>(iv) Svádhyáya:</b> The study, with proper understanding, of scriptures and philosophical books is svádhyáya. The philosophical books and scriptures of Bliss are Ánanda Sútram and Subháśita Saḿgraha (all parts), respectively. Svádhyáya is also done by attending dharmacakra (group meditation) regularly and having satsauṋga (spiritual company), but this kind of svádhyáya is intended only for those who are not capable of studying in the above manner.<br><br>
+                        <b>(v) Iishvara prańidhána:</b> This is to have firm faith in Iishvara (the Cosmic Controller) in pleasure and pain, prosperity and adversity, and to think of oneself as the instrument, and not the wielder of the instrument, in all the affairs of life.<br>
+                        </p>
+    </div>
+    <div ng-show="pageId == 3">
+       <img src="img/Pratik.png" style="margin: auto; max-width: 100%;"/>
+        <p class="blog_style_pg2">The triangle with the vertex downward signifies knowledge.
+                        <br>The triangle with the vertex upward signifies action.<br>The rising sun signifies advancement.<br>The svastika signifies victory.
+                        </p>
+                      
+                        <p class="blog_style_pg2"><i>(When one advance balancing knowledge and action properly One is destined to attain victory is One’s endeavour for perfection)</i>
+                        </p>
+    </div>
+    <div ng-show="pageId == 4">
+        <div class="blog_content3">
+            <h2><a href="What is Bliss.html" class="Q-A_head_ing">What is Bliss..?</a></h2>
+            <img class="img-responsive posted-by-img" src="img/Posted-by-tapas.png" width="32px" height="32px" align="left"/>
+            <h5 class="posted_by"><span class="last_update">Posted By: Tapas Dev</span>Last Updated: 03/01/2017 </h5>
+            
+            <p class="blog_style">A'nanda Ma'rga is a worldwide socio-spiritual mission founded by Shri Prabhat Ranjan Sarkar. It teaches scientific practices of self-development to all free of charge.<span ng-show="readMore1">vndfvnf vfdkbvkdfj vhdfbvdfjkb</span></p>
+
+            <p class="text-center"><a href="#" class="btn btn_style readMore" ng-show="!readMore1" role="button" style="border-radius: 0px; padding-left: 20px; padding-right: 20px; " ng-click="readMore(1)">Read More</a></p>
+                                
+        </div>
+        <hr>
+        <div class="blog_content3">
+            <h2><a href="What is Bliss.html" class="Q-A_head_ing">What is Bliss..?</a></h2>
+            <img class="img-responsive posted-by-img" src="img/Posted-by-tapas.png" width="32px" height="32px" align="left"/>
+            <h5 class="posted_by"><span class="last_update">Posted By: Tapas Dev</span>Last Updated: 03/01/2017 </h5>
+            
+            <p class="blog_style">A'nanda Ma'rga is a worldwide socio-spiritual mission founded by Shri Prabhat Ranjan Sarkar. It teaches scientific practices of self-development to all free of charge.<span ng-show="readMore2">vndfvnf vfdkbvkdfj vhdfbvdfjkb</span></p>
+
+            <p class="text-center"><a href="#" class="btn btn_style readMore" ng-show="!readMore2" role="button" style="border-radius: 0px; padding-left: 20px; padding-right: 20px; " ng-click="readMore(2)">Read More</a></p>
+                                
+        </div>
+    </div>
+    <div ng-show="pageId == 5">
+        <p><img class="img-responsive" src="img/june.png"/ style="margin: auto; max-width: 100%;"/></p>
+        <p><img class="img-responsive" src="img/july.png"/ style="margin: auto; max-width: 100%;"/></p>
+        <p><img class="img-responsive" src="img/august.png"/ style="margin: auto; max-width: 100%;"/></p>
+        <p><img class="img-responsive" src="img/sepetember.png"/ style="margin: auto; max-width: 100%;"/></p>
+        <p><img class="img-responsive" src="img/october.png"/ style="margin: auto; max-width: 100%;"/></p>
+        <p><img class="img-responsive" src="img/november.png"/ style="margin: auto; max-width: 100%;"/></p>
+        <p><img class="img-responsive" src="img/december.png"/ style="margin: auto; max-width: 100%;"/></p>
+    </div>
+    <div ng-show="pageId == 6">
+        <div class="blog_content3">
+                        <h2><a href="What is Bliss.html" class="Q-A_head_ing">What is Bliss..?</a></h2>
+                        <img class="img-responsive posted-by-img" src="img/Posted-by-tapas.png" width="32px" height="32px" align="left"/>
+                        <h5 class="posted_by"><span class="last_update">Posted By: Tapas Dev</span>Last Updated: 03/01/2017 </h5>
+                        
+                        <p class="blog_style">A'nanda Ma'rga is a worldwide socio-spiritual mission founded by Shri Prabhat Ranjan Sarkar. It teaches scientific practices of self-development to all free of charge.<span ng-show="readMore1">vndfvnf vfdkbvkdfj vhdfbvdfjkb</span></p>
+                        <p class="text-center">
+                            <a href="#" class="btn btn_style readMore" ng-show="!readMore1" role="button" style="border-radius: 0px; padding-left: 20px; padding-right: 20px; " ng-click="readMore(1)">Read More</a>
+                        </p>
+                        
+        </div>
+    </div>
+    <div ng-show="pageId == 7" style="margin: -5vw -8vw 0 -8vw">
+        <img class="img-responsive" src="img/Map.png" alt="Map" style="max-width: 100%;" />
+                
+        
+            <!-----------------------------------POPULAR ADDRESSES- START ------------------------------>
+                    <h3 class="Popular-Addresses">Popular Addresses</h3>
+                    
+                    <div class="address-box">
+                        <p><b>Bliss School</b><br>
+                        At, P.O.- Ganki, Khowai,<br>
+                        Dist- West Tripura,<br>
+                        Tripura- 799205</p>
+                    </div>
+                    
+                    <div class="col-sm-2 address-box">
+                        <p><b>Bliss School</b><br>
+                        At, P.O.- Ganki, Khowai,<br>
+                        Dist- West Tripura,<br>
+                        Tripura- 799205</p>
+                    </div>
+                    
+                    <div class="col-sm-2 address-box">
+                        <p><b>Bliss School</b><br>
+                        At, P.O.- Ganki, Khowai,<br>
+                        Dist- West Tripura,<br>
+                        Tripura- 799205</p>
+                    </div>
+                    
+                    <div class="col-sm-2 address-box">
+                        <p><b>Bliss School</b><br>
+                        At, P.O.- Ganki, Khowai,<br>
+                        Dist- West Tripura,<br>
+                        Tripura- 799205</p>
+                    </div>
+                    
+                    <div class="col-sm-2 address-box">
+                        <p><b>Bliss School</b><br>
+                        At, P.O.- Ganki, Khowai,<br>
+                        Dist- West Tripura,<br>
+                        Tripura- 799205</p>
+                    </div>
+                    
+                    <div class="col-sm-2 address-box">
+                        <p><b>Bliss School</b><br>
+                        <span class="add-small-size-font">At, P.O.- Ganki, Khowai,<br>
+                        Dist- West Tripura,<br>
+                        Tripura- 799205<br>
+                        At, P.O.- Ganki, Khowai,<br>
+                        Dist- West Tripura,<br>
+                        Tripura- 799205</span></p>
+                    </div>
+                    
+                    <div class="col-sm-2 address-box">
+                        <p><b>Bliss School</b><br>
+                        At, P.O.- Ganki, Khowai,<br>
+                        Dist- West Tripura,<br>
+                        Tripura- 799205</p>
+                    </div>
+    </div>
+
   </ion-content>
 </ion-view>

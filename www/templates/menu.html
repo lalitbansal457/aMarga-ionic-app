@@ -16,7 +16,7 @@
     <ion-header-bar class="bar-stable side-menu-header">
       <h1 class="title" ui-sref="app.playlists" menu-close>
         <!-- <a href="#/app/playlists"> -->
-          <img src="../img/logo.png" />  
+          <img src="img/logoBig.png"/>  
         <!-- </a> -->
         
       </h1>
@@ -34,6 +34,16 @@
             <a ng-href="{{sideMenuLinkInner.linkHref}}" menu-close  ng-click="goToPage($index); $event.stopPropagation();" ng-repeat="sideMenuLinkInner in sideMenuLink.innerLinkArr">{{sideMenuLinkInner.innerLink}}
             {{sideMenuLinkInner.linkTitle}}</a>
           </div> 
+        </ion-item>
+        <ion-item class="item-text-wrap item">
+            <a ui-sref="app.date" menu-close style="padding:0;color:#444"> <span>Historical Dates</span> </a>
+        </ion-item>
+        
+        <ion-item class="item-text-wrap item">
+            <a ui-sref="app.scriptures" menu-close style="padding:0;color:#444"> <span>Scriptures</span> </a>
+        </ion-item>
+        <ion-item class="item-text-wrap item">
+            <a ui-sref="app.aboutUs" menu-close style="padding:0;color:#444"> <span>About us</span> </a>
         </ion-item>
       </ion-list>
     </ion-content>
